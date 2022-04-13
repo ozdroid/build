@@ -3,6 +3,9 @@
 
 cpucore = $nproc
 
+  echo "Current PC cup core == $cpucore"
+
+
 if [ $1 == "lede" ]; then
   #Clean and re git clone lede
   echo "------------------------------------------------------------- Start download Lede -------------------------------------------------------------------------"
