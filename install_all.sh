@@ -1,7 +1,7 @@
 #!/bin/bash
 #lede
 
-cpucore=$nproc
+cpucore=$(($(nproc) + 1))
 echo "Current PC cup core == $cpucore"
 
 
