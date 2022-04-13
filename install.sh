@@ -8,7 +8,9 @@ cd ./lede
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 make menuconfig
-
+make -j8 download
+make -j$(($(nproc) + 1)) V=s
+echo "------------------------------------------------------------- finish first compile ---------------------------------------------------------"
 
 sleep 60
 
