@@ -5,16 +5,16 @@ git clone https://github.com/coolsnowwolf/lede
 cd ./lede
 
 #Fist Compile
-./scripts/feeds update -a
-./scripts/feeds install -a
-make menuconfig
-make -j8 download
-find dl -size -1024c -exec ls -l {} \;
-find dl -size -1024c -exec rm -f {} \;
-make -j$(($(nproc) + 1)) V=s
-echo "------------------------------------------------------------- finish first compile ---------------------------------------------------------"
+#./scripts/feeds update -a
+#./scripts/feeds install -a
+#make menuconfig
+#make -j8 download
+#find dl -size -1024c -exec ls -l {} \;
+#find dl -size -1024c -exec rm -f {} \;
+#make -j$(($(nproc) + 1)) V=s
+#echo "------------------------------------------------------------- finish first compile ---------------------------------------------------------"
 
-sleep 60
+#sleep 60
 
 #update Feed and git clone luci
 echo "------------------------------------------------------------- Update -------------------------------------------------------------------------"
@@ -38,7 +38,7 @@ rm -rf .config
 wget https://raw.githubusercontent.com/ozdroid/build/main/1config -O .config
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 sed -i 's/luci-theme-bootstrap/luci-theme-neobird/g' feeds/luci/collections/luci/Makefile
-make menuconfig
+make defconfig
 
 #Download
 echo "------------------------------------------------------------- Download File -------------------------------------------------------------------------"
