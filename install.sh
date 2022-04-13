@@ -1,5 +1,8 @@
 #!/bin/bash
 #lede
+
+cpucore = $nproc
+
 if [ $1 == "lede" ]; then
   #Clean and re git clone lede
   echo "------------------------------------------------------------- Start download Lede -------------------------------------------------------------------------"
@@ -14,7 +17,7 @@ if [ $1 == "lede" ]; then
   make -j8 download
   find dl -size -1024c -exec ls -l {} \;
   find dl -size -1024c -exec rm -f {} \;
-  make -j$(($(nproc) + 0)) V=s
+  make -j$cpucore V=s
   echo "------------------------------------------------------------- finish first compile ---------------------------------------------------------"
   exit 0
 #compile own lede
@@ -46,7 +49,7 @@ else
 
   #Compile
   echo "------------------------------------------------------------- Start Compile -------------------------------------------------------------------------"
-  make -j$(($(nproc) + 0)) V=s
+  make -j$cpucore V=s
 
   #Upload files
   time=$(date "+%Y%m%d-%H%M%S")
