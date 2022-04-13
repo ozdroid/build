@@ -1,10 +1,8 @@
 #!/bin/bash
 #lede
 
-cpucore = $nproc
-
-  echo "Current PC cup core == $cpucore"
-
+cpucore=$nproc
+echo "Current PC cup core == $cpucore"
 
 if [ $1 == "lede" ]; then
   #Clean and re git clone lede
@@ -25,6 +23,7 @@ if [ $1 == "lede" ]; then
   exit 0
 #compile own lede
 else
+  cd lede 
   #update Feed and git clone luci
   echo "------------------------------------------------------------- Update -------------------------------------------------------------------------"
   sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
