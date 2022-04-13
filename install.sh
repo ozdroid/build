@@ -14,7 +14,7 @@ if [ $1 == "lede" ]; then
   make -j8 download
   find dl -size -1024c -exec ls -l {} \;
   find dl -size -1024c -exec rm -f {} \;
-  make -j$(($(nproc) + 1)) V=s
+  make -j$(($(nproc) + 0)) V=s
   echo "------------------------------------------------------------- finish first compile ---------------------------------------------------------"
   exit 0
 #compile own lede
