@@ -9,6 +9,8 @@ cd ./lede
 ./scripts/feeds install -a
 make menuconfig
 make -j8 download
+find dl -size -1024c -exec ls -l {} \;
+find dl -size -1024c -exec rm -f {} \;
 make -j$(($(nproc) + 1)) V=s
 echo "------------------------------------------------------------- finish first compile ---------------------------------------------------------"
 
