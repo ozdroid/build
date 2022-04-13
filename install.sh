@@ -4,6 +4,14 @@ rm -rf ./lede
 git clone https://github.com/coolsnowwolf/lede
 cd ./lede
 
+#Fist Compile
+./scripts/feeds update -a
+./scripts/feeds install -a
+make menuconfig
+
+
+sleep 60
+
 #update Feed and git clone luci
 echo "------------------------------------------------------------- Update -------------------------------------------------------------------------"
 sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
@@ -25,8 +33,9 @@ echo "------------------------------------------------------------- Compile ----
 wget https://raw.githubusercontent.com/ozdroid/build/main/1config -O .config
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 sed -i 's/luci-theme-bootstrap/luci-theme-neobird/g' feeds/luci/collections/luci/Makefile
-make defconfig
+make menuconfig
 
+sleep 60
 
 #Download
 echo "------------------------------------------------------------- Download File -------------------------------------------------------------------------"
