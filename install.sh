@@ -34,6 +34,7 @@ sleep 10
 
 #Config
 echo "------------------------------------------------------------- Compile -------------------------------------------------------------------------"
+rm -rf .config
 wget https://raw.githubusercontent.com/ozdroid/build/main/1config -O .config
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 sed -i 's/luci-theme-bootstrap/luci-theme-neobird/g' feeds/luci/collections/luci/Makefile
