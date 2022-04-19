@@ -32,7 +32,7 @@ make menuconfig
 
 #Download
 echo "------------------------------------------------------------- Download File -------------------------------------------------------------------------"
-make -j8 download
+make -j8 download V=s
 find dl -size -1024c -exec ls -l {} \;
 find dl -size -1024c -exec rm -f {} \;
 
