@@ -25,7 +25,7 @@ sed -i '$a src-git small8 https://github.com/kenzok8/small-package' feeds.conf.d
 
 echo "------------------------------------------------------------- Update Config -------------------------------------------------------------------------"
 rm -rf .config
-wget https://raw.githubusercontent.com/ozdroid/build/main/1config -O .config
+wget --inet4-only https://raw.githubusercontent.com/ozdroid/build/main/1config -O .config
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 sed -i 's/luci-theme-bootstrap/luci-theme-neobird/g' feeds/luci/collections/luci/Makefile
 make menuconfig
